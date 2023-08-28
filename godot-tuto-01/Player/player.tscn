@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://s8oeh6vhj774"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_f62k0"]
+[ext_resource type="Texture2D" uid="uid://noq54m526sa7" path="res://Player/player.png" id="2_mj8sk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhcbk"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pil8w"]
+size = Vector2(18, 18)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_f62k0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mj8sk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nhcbk")
+debug_color = Color(0, 0.596078, 0.721569, 0.419608)
+
+[node name="Area2D_HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_HitBox"]
+shape = SubResource("RectangleShape2D_pil8w")
+
+[node name="BulletPoint" type="Node2D" parent="."]
+position = Vector2(27, 0)
