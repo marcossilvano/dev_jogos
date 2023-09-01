@@ -1,10 +1,10 @@
-res://Player/player.tscn
-res://Player/Player.gd
 res://scene.tscn
-res://Bullet/bullet.tscn
-res://Bullet/bullet2.tscn
-res://Bullet/Bullet.gd
-res://Explosion/Explosion.gd
-res://Explosion/explosion.tscn
 res://Enemy/enemy.tscn
 res://Enemy/Enemy.gd
+res://Bullet/bullet.tscn
+res://Bullet/Bullet.gd
+res://Player/player.tscn
+res://Player/Player.gd
+res://Tile/tile.tscn
+res://FullscreenButton.gd
+res://GameController.gd

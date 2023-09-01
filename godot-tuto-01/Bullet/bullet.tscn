@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://Bullet/Bullet.gd" id="1_fmour"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82bda"]
-size = Vector2(16, 8)
+size = Vector2(8, 4)
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D" groups=["bullet"]]
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_fmour")

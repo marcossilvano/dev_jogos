@@ -7,10 +7,9 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqe06"]
-size = Vector2(18, 18)
+size = Vector2(17, 17)
 
-[node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(1.5, 1.5)
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_nheir")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,3 +23,5 @@ shape = SubResource("RectangleShape2D_i1mi8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_jqe06")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

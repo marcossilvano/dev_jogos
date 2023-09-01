@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------
+
+GAME
+World: Node2D
+    GameUI: Control
+        CanvarLayer
+            FPSLabel
+            FullScreenButton
+    Map: Node2D
+        Floor: Sprite
+        TileMap
+            16x16
+    Player: Player
+        Camera2D
+            zoom: 2
+            position smoothing: ON
+        PointLight2D
+            texture: 300x300 (150x150 paintbrush)
+            texture Scale: 2 ou 3
+    Enemies: Node2D
+        Enemy: Enemy
+    
+--------------------------------------------------------------------------
+
+PLAYER (player group)
+CharacterBody2D
+    Sprite2D: 16x16
+    CollistionShape2D: 16x16
+    HitBox: Area2D
+        signal: body_entered
+
+        CollistionShape2D: 17x17
+    BulletPoint: Node2D
+
+--------------------------------------------------------------------------
+
+ENEMY (enemy group)
+CharacterBody2D
+    Sprite2D: 16x16
+    CollistionShape2D: 16x16
+    HitBox: Area2D
+        signal: body_entered
+
+        CollistionShape2D: 17x17
+
+--------------------------------------------------------------------------
+
+BULLET (bullet group)
+ENEMY (enemy group)
+RigidBody2D
+    max contacts reported: 1
+    contact monitor: ON
+    signal: body_entered
+    
+    Sprite2D: 8x4
+    CollistionShape2D: 8x4
+
+--------------------------------------------------------------------------
+
+BOX (usado posteriormente como tile)
+StaticBody2D
+    Sprite2D: 16x16
+    CollistionShape2D: 16x16
+    LightOccluder2D
+
+--------------------------------------------------------------------------
