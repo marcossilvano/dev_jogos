@@ -1,0 +1,48 @@
+[
+	{
+		"key": "first_scene",
+		"title": "A primeira cena",
+		"text": "Nossa! O que aquele cara está fazendo no caminhão? Parece estar pendurado...",
+		"image": "first_scene.png",
+		"options": [
+			{
+				"text": "Ir em frente",
+				"outcome": "Não consigo fazer isso",
+				"next": "none"
+			},
+			{
+				"text": "Não ir em frente",
+				"outcome": "Talvez eu poderia, quem sabe, fazer isso.",
+				"next": "none"
+			},
+			{
+				"text": "Fazer nada",
+				"outcome": "De repente, Adol sente um força que o levante e ele é transportado à outro lugar.",
+				"next": "second_scene"
+			}
+		]
+	},
+	{
+		"key": "second_scene",
+		"title": "(Quase) A primeira cena",
+		"text": "Nossa! O que aquele cara está fazendo no caminhão? Parece estar pendurado...",
+		"image": "second_scene.png",
+		"options": [
+			{
+				"text": "Voltar",
+				"outcome": "Não consigo fazer isso",				
+				"next": "first_scene"
+			},
+			{
+				"text": "Não ir em frente",
+				"outcome": "Talvez eu poderia, quem sabe, fazer isso.",
+				"next": "none"
+			},
+			{
+				"text": "Fazer nada",
+				"outcome": "De repente, Adol sente um força que o levante e ele é transportado à outro lugar.",
+				"next": "none"
+			}
+		]
+	}	
+]

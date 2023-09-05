@@ -1,10 +1,5 @@
 res://scene.tscn
-res://Enemy/enemy.tscn
-res://Enemy/Enemy.gd
-res://Bullet/bullet.tscn
-res://Bullet/Bullet.gd
-res://Player/player.tscn
-res://Player/Player.gd
-res://Tile/tile.tscn
-res://FullscreenButton.gd
-res://GameController.gd
+res://UI/MobileInput/Joystick2.gd
+res://UI/MobileInput/Joystick2.tscn
+res://UI/MobileInput/Joystick.tscn
+res://UI/MobileInput/Joystick.gd

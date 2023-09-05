@@ -1,4 +1,6 @@
 Node2D
+Sprite2D
+TouchScreenButton
 Node
 Button
 PointLight2D
@@ -6,7 +8,6 @@ Camera2D
 TileMap
 CharacterBody2D
 RigidBody2D
-Sprite2D
 CollisionShape2D
 LightOccluder2D
 StaticBody2D

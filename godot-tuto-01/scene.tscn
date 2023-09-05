@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://citlevfxvmwfp"]
+[gd_scene load_steps=12 format=3 uid="uid://citlevfxvmwfp"]
 
 [ext_resource type="PackedScene" uid="uid://s8oeh6vhj774" path="res://Player/player.tscn" id="1_0lbw7"]
 [ext_resource type="Script" path="res://GameController.gd" id="1_w7ga7"]
+[ext_resource type="PackedScene" uid="uid://dxfmjk3a1rfvo" path="res://UI/MobileInput/Joystick.tscn" id="2_2rrlf"]
 [ext_resource type="PackedScene" uid="uid://b7b75llkioid" path="res://Tile/tile.tscn" id="2_ofiiv"]
 [ext_resource type="Script" path="res://FpsLabel.gd" id="3_k0y11"]
 [ext_resource type="Texture2D" uid="uid://rr44mnburp0w" path="res://light_texture.png" id="4_an76g"]
@@ -25,6 +26,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameUI"]
+
+[node name="JoystickBase" parent="GameUI/CanvasLayer" instance=ExtResource("2_2rrlf")]
+position = Vector2(32, 424)
 
 [node name="FpsLabel" type="Label" parent="GameUI/CanvasLayer"]
 offset_left = 8.0
