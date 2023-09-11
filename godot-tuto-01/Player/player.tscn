@@ -1,23 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://s8oeh6vhj774"]
+[gd_scene load_steps=6 format=3 uid="uid://s8oeh6vhj774"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_f62k0"]
 [ext_resource type="Texture2D" uid="uid://noq54m526sa7" path="res://Player/player.png" id="2_mj8sk"]
+[ext_resource type="Texture2D" uid="uid://b4qpivys1vlga" path="res://Aim/aim.png" id="3_p3ujd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhcbk"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vae8"]
+radius = 8.02773
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pil8w"]
 size = Vector2(17, 17)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(1.5, 1.5)
+motion_mode = 1
 script = ExtResource("1_f62k0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mj8sk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_nhcbk")
+shape = SubResource("CircleShape2D_5vae8")
 debug_color = Color(0, 0.596078, 0.721569, 0.419608)
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -27,5 +29,18 @@ shape = SubResource("RectangleShape2D_pil8w")
 
 [node name="BulletPoint" type="Node2D" parent="."]
 position = Vector2(15.3333, 0)
+
+[node name="Aim" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(74.6667, 0)
+texture = ExtResource("3_p3ujd")
+
+[node name="Laser" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0, 0, 0.156863)
+position = Vector2(42.6667, 0)
+scale = Vector2(4, 0.1)
+texture = ExtResource("2_mj8sk")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

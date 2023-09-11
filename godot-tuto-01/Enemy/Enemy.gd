@@ -2,15 +2,19 @@ class_name Enemy
 extends CharacterBody2D
 #extends RigidBody2D
 
-@export var min_speed: float = 50
-@export var max_speed: float = 150
-@export var health: float = 5
+@export var min_speed: float = 75
+@export var max_speed: float = 100
+@export var health: float = 1
 @export var direction_error: float = 50
+
+@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var _player: Player
 var _speed: float = randf_range(min_speed, max_speed)
 var _motion: Vector2
 var _activated: bool = false
+var _tween: Tween
+#var _timer: Timer
 
 
 # dependency injection
@@ -34,10 +38,24 @@ func _set_motion() -> void:
 			randf_range(-direction_error, direction_error), randf_range(-direction_error, direction_error))
 		_motion = (_player.get_global_position() + error) - get_global_position()
 	
-	get_tree().create_timer(0.5).connect("timeout", _set_motion)
 	
+#	_timer = Timer.new()
+#	add_child(_timer)
+#	_timer.timeout.connect(_set_motion)
+#	_timer.set_wait_time(0.5)
+#	_timer.set_one_shot(true)
+#	_timer.start()
+#	get_tree().create_timer(0.5).connect("timeout", _set_motion)
 	
-func _physics_process(delta: float) -> void:
+
+func _physics_process(_delta: float) -> void:
+	_motion = _player.get_global_position() - get_global_position()
+	velocity = _motion.normalized() * _speed
+	move_and_slide()
+	look_at(_player.get_global_position())
+		
+	
+func _physics_process2(delta: float) -> void:
 	if not _activated:
 		return
 	
@@ -52,8 +70,16 @@ func _physics_process(delta: float) -> void:
 	
 	look_at(_player.get_global_position())
 
+
 func _hit(body: Bullet):
 	health -= body.damage
+	
+	if _tween:
+		_tween.stop()
+	_tween = create_tween()
+	_tween.tween_property(_sprite, "modulate", Color.RED, 0.0)
+	_tween.tween_property(_sprite, "modulate", Color.WHITE, 0.1)
+	
 	if health <= 0:
 		queue_free()
 

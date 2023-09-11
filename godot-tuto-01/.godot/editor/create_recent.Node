@@ -1,5 +1,11 @@
 Node2D
+TextureRect
+CollisionShape2D
 Sprite2D
+Area2D
+StaticBody2D
+CollisionPolygon2D
+AnimatedSprite2D
 TouchScreenButton
 Node
 Button
@@ -8,11 +14,7 @@ Camera2D
 TileMap
 CharacterBody2D
 RigidBody2D
-CollisionShape2D
 LightOccluder2D
-StaticBody2D
-Area2D
-AnimatedSprite2D
 Label
 CanvasLayer
 Control

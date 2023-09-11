@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://x8y8hqd10evr"]
+
+[ext_resource type="Script" path="res://Generator/generator.gd" id="1_c0vtn"]
+[ext_resource type="Texture2D" uid="uid://cuy04ureaav2d" path="res://Generator/generator.png" id="1_hbqaq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07ncj"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0c7sv"]
+radius = 16.0
+
+[node name="Generator" type="StaticBody2D" groups=["generator"]]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_c0vtn")
+entity_scene = "res://Enemy/enemy.tscn"
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D1" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.317647, 0.317647, 0.317647, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hbqaq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.470588, 0.470588, 0.470588, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_hbqaq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.72549, 0.72549, 0.72549, 1)
+texture = ExtResource("1_hbqaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_07ncj")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
+shape = SubResource("CircleShape2D_0c7sv")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

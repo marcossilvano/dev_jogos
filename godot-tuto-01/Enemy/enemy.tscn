@@ -1,27 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmndj1spto6ok"]
+[gd_scene load_steps=8 format=3 uid="uid://cmndj1spto6ok"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_nheir"]
-[ext_resource type="Texture2D" uid="uid://cf2orccy4q8ob" path="res://Enemy/enemy.png" id="1_o0a7r"]
+[ext_resource type="Texture2D" uid="uid://44ew748cn6a6" path="res://Enemy/enemy-Sheet.png" id="3_pgpfk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1mi8"]
-size = Vector2(16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p5jv"]
+atlas = ExtResource("3_pgpfk")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqe06"]
-size = Vector2(17, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k04yj"]
+atlas = ExtResource("3_pgpfk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjebb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p5jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k04yj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gftjf"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5qxx"]
+radius = 8.8
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(1.25, 1.25)
 script = ExtResource("1_nheir")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_o0a7r")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_vjebb")
+autoplay = "default"
+frame_progress = 0.0719467
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_i1mi8")
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_gftjf")
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("RectangleShape2D_jqe06")
+shape = SubResource("CircleShape2D_v5qxx")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

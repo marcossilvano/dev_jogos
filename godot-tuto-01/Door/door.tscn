@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cixvb8y621w3g"]
+
+[ext_resource type="Script" path="res://Door/door.gd" id="1_g3fcs"]
+[ext_resource type="Texture2D" uid="uid://uh8wral0vda" path="res://Door/door.png" id="1_sgvpf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncdje"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukfws"]
+size = Vector2(80, 32)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_g3fcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.341176, 0.341176, 0.341176, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_sgvpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ncdje")
+
+[node name="ActivationArea" type="Area2D" parent="."]
+position = Vector2(0, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_ukfws")
+debug_color = Color(0.443137, 0.454902, 0.992157, 0.419608)
+
+[connection signal="body_entered" from="ActivationArea" to="." method="_on_activation_area_body_entered"]

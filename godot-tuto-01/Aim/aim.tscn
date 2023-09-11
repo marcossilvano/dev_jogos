@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs1kquo8r1g5w"]
+
+[ext_resource type="Texture2D" uid="uid://b4qpivys1vlga" path="res://Aim/aim.png" id="1_2dy6m"]
+[ext_resource type="Script" path="res://Aim/aim.gd" id="2_84wh1"]
+
+[node name="Aim" type="Sprite2D"]
+position = Vector2(616, 296)
+texture = ExtResource("1_2dy6m")
+script = ExtResource("2_84wh1")
