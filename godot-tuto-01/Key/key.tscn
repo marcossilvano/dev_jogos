@@ -1,18 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://fe7gibbfb8we"]
+[gd_scene load_steps=5 format=3 uid="uid://fe7gibbfb8we"]
 
 [ext_resource type="Script" path="res://Key/key.gd" id="1_6kt6o"]
 [ext_resource type="Texture2D" uid="uid://cktqpapyjujam" path="res://Key/key.png" id="1_bfqel"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1v4lo"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_llthc"]
+polygon = PackedVector2Array(10, 3, -10, 3, -10, -2, 10, -2)
+
 [node name="Key" type="Area2D"]
 script = ExtResource("1_6kt6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1v4lo")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.313726)
+z_index = -5
+position = Vector2(-3, -3)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_bfqel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_bfqel")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_1v4lo")
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_llthc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

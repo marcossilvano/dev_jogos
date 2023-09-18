@@ -1,53 +1,116 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmndj1spto6ok"]
+[gd_scene load_steps=15 format=3 uid="uid://cmndj1spto6ok"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_nheir"]
-[ext_resource type="Texture2D" uid="uid://44ew748cn6a6" path="res://Enemy/enemy-Sheet.png" id="3_pgpfk"]
+[ext_resource type="Texture2D" uid="uid://byob8tnn7hsha" path="res://Enemy/alien_sheet.png" id="2_k0drq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5p5jv"]
-atlas = ExtResource("3_pgpfk")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t34ac"]
+polygon = PackedVector2Array(12.8, 8.8, 12.8, 12.8, -2.4, 12, -5.6, 9.6, -5.6, 4, -12, 0, -5.6, -3.2, -5.6, -9.6, -1.6, -12, 12.8, -12.8, 12.8, -8.8, -1.6, -8.8, 3.2, -1.6, 3.2, 1.6, -2.4, 8.8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k04yj"]
-atlas = ExtResource("3_pgpfk")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_gftjf"]
+radius = 8.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5qxx"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i7mr"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54s6o"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gsk3"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfqsf"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftly6"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt5ro"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmwsh"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3by8b"]
+atlas = ExtResource("2_k0drq")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vjebb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5p5jv")
+"texture": SubResource("AtlasTexture_3i7mr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k04yj")
+"texture": SubResource("AtlasTexture_54s6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gsk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfqsf")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftly6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt5ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmwsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3by8b")
+}],
+"loop": true,
+"name": &"move",
+"speed": 12.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gftjf"]
-radius = 8.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_v5qxx"]
-radius = 8.8
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.25, 1.25)
 script = ExtResource("1_nheir")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_vjebb")
-autoplay = "default"
-frame_progress = 0.0719467
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_t34ac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_gftjf")
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_v5qxx")
+
+[node name="Shadow" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.313726)
+z_index = -5
+position = Vector2(-2.4, -2.4)
+rotation = -1.57079
+sprite_frames = SubResource("SpriteFrames_vjebb")
+animation = &"move"
+autoplay = "move"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.57079
+sprite_frames = SubResource("SpriteFrames_vjebb")
+animation = &"move"
+autoplay = "move"
+frame = 1
+frame_progress = 0.319551
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

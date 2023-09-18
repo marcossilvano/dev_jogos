@@ -7,14 +7,23 @@ extends CharacterBody2D
 @export var health: float = 1
 @export var direction_error: float = 50
 
-@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _enemy_dead: PackedScene = preload("res://Enemy/enemy_dead.tscn")
 
 var _player: Player
 var _speed: float = randf_range(min_speed, max_speed)
 var _motion: Vector2
-var _activated: bool = false
+var _activated: bool = true
 var _tween: Tween
 #var _timer: Timer
+
+signal health_depleted
+
+
+func _ready() -> void:
+	_tween = create_tween()
+	_tween.tween_property(_animated_sprite, "modulate:a", 0, 0.0)
+	_tween.tween_property(_animated_sprite, "modulate:a", 1, 0.2)
 
 
 # dependency injection
@@ -49,13 +58,22 @@ func _set_motion() -> void:
 	
 
 func _physics_process(_delta: float) -> void:
+	if not _activated:
+		return
+	
 	_motion = _player.get_global_position() - get_global_position()
 	velocity = _motion.normalized() * _speed
 	move_and_slide()
-	look_at(_player.get_global_position())
-		
 	
-func _physics_process2(delta: float) -> void:
+	if _motion.length() < 80:
+		_animated_sprite.play("attack")
+	else:
+		_animated_sprite.play("move")
+		
+	look_at(_player.get_global_position())
+
+
+func _physics_process_old(delta: float) -> void:
 	if not _activated:
 		return
 	
@@ -71,17 +89,27 @@ func _physics_process2(delta: float) -> void:
 	look_at(_player.get_global_position())
 
 
+func _kill():
+	emit_signal("health_depleted")
+	queue_free()
+	var _body: EnemyDead = _enemy_dead.instantiate()
+	_body.position = position
+	_body.rotation = rotation
+	_body.scale = scale
+	get_parent().add_child(_body)
+
+
 func _hit(body: Bullet):
 	health -= body.damage
 	
 	if _tween:
 		_tween.stop()
 	_tween = create_tween()
-	_tween.tween_property(_sprite, "modulate", Color.RED, 0.0)
-	_tween.tween_property(_sprite, "modulate", Color.WHITE, 0.1)
+	_tween.tween_property(_animated_sprite, "modulate", Color.RED, 0.0)
+	_tween.tween_property(_animated_sprite, "modulate", Color.WHITE, 0.1)
 	
 	if health <= 0:
-		queue_free()
+		_kill()
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):

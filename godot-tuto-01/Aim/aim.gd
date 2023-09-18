@@ -12,11 +12,13 @@ var _radius: float
 func _ready() -> void:
 #	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	_next_pos = get_global_position()
 
 
-func update_position(reference: Node2D, ref_offset: Vector2) -> void:
+func update_position(ref_pos: Vector2, ref_offset: Vector2) -> void:
 	_get_joy_input()
-	_ref_pos = reference.get_global_position()
+#	_ref_pos = reference.get_global_position()
+	_ref_pos = ref_pos
 	
 	var direction: Vector2 = _ref_pos - _next_pos
 	if direction.length() > _radius:
@@ -39,6 +41,9 @@ func _move_pos(input_vector: Vector2, speed: float) -> void:
 
 
 func _input(event):
+	if OS.has_feature("mobile"):
+		return
+		
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseMotion and event.relative.length() > 0.5:
 		_radius = 170

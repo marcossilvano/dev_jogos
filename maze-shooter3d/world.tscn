@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqdu4643vkjcw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6s8oq"]
+
+[node name="World" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_6s8oq")
+
+[node name="Player" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20091, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Player"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/StaticBody3D"]
+shape = SubResource("BoxShape3D_6s8oq")
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20091, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
+shape = SubResource("BoxShape3D_6s8oq")
+
+[node name="Wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 8, 4, 5.20091, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_6s8oq")
+
+[node name="Wall3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 8, -6, 5.20091, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3/StaticBody3D"]
+shape = SubResource("BoxShape3D_6s8oq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 0)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 12, 27)

@@ -4,7 +4,11 @@ extends StaticBody2D
 @export var health: float = 10
 @export var rotation_speed: float = 2
 @export var generation_delay: float = 1.5
+@export var initial_delay: bool = false
+@export var enemy_limit: int = 5
 @export_file("*.tscn") var entity_scene: String
+
+@onready var _sprite: Sprite2D = $Sprites/Sprite2D3
 
 var _sprites: Array[Sprite2D]
 var _entity_res: Resource
@@ -12,7 +16,7 @@ var _timer: Timer
 var _player: Player
 var _active: bool = false
 var _tween: Tween
-@onready var _sprite: Sprite2D = $Sprites/Sprite2D3
+var _enemy_count: int = 0
 
 
 func _ready() -> void:
@@ -22,25 +26,37 @@ func _ready() -> void:
 	
 	assert(entity_scene, name + ": 'entity' must be set.")
 	_entity_res = load(entity_scene)
-	
-#	_generate_entity()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var offset: float = 0
+	var i: int = 0
 	for spr in _sprites:
 		spr.rotation += (rotation_speed + offset) * delta
-		offset += 0.5
+		
+		if i != 0: # shadow doesn't rotate faster
+			offset += 0.5
+		i += 1
 
 
 func _generate_entity():
+	if _enemy_count >= enemy_limit:
+		return
+	
 	var instance = load(entity_scene).instantiate()
 	instance.position = get_global_position()
 	instance.set_player(_player)
-	get_parent().add_child(instance)
+	get_parent().call_deferred("add_child", instance)
+	
+	_enemy_count += 1
+	instance.health_depleted.connect(_on_enemy_killed)
 
 #	get_tree().create_timer(generation_delay).call("_generate_entity")
+
+
+func _on_enemy_killed():
+	_enemy_count -= 1
 
 
 func _hit(body: Bullet):
@@ -59,6 +75,7 @@ func _hit(body: Bullet):
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
 		_hit(body)
+		
 
 ## PUBLIC METHODS ######################################
 ########################################################
@@ -81,3 +98,6 @@ func activate() -> void:
 	_timer.set_wait_time(generation_delay)
 	_timer.set_one_shot(false)
 	_timer.start()
+	
+	if not initial_delay:
+		_generate_entity()	

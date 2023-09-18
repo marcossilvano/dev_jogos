@@ -8,10 +8,15 @@
 class_name VirtualJoystick
 extends TouchScreenButton
 
+enum HAlign {LEFT, RIGHT}
+enum VAlign {TOP, BOTTOM}
+
 @export var action_right: String = "ui_right"
 @export var action_left:  String = "ui_left"
 @export var action_up:    String = "ui_up"
 @export var action_down:  String = "ui_down"
+@export var hanchor: HAlign
+@export var vanchor: VAlign
 
 @onready var _base: TouchScreenButton = self
 @onready var _point: Sprite2D = $JoystickPoint
@@ -20,15 +25,44 @@ var _radius: Vector2
 var _input_vector: Vector2 = Vector2.ZERO
 var _active: bool = false
 var _touch_id: int = -1
+var _pos_offset: Vector2
 
 
 func _ready() -> void:
+	if OS.has_feature("mobile"):
+		set_visible(true)
 	_radius.x = _base.shape.radius * _base.scale.x
 	_radius.y = _base.shape.radius * _base.scale.y
 	_point.visible = true
-	#_point.scale = _point.scale * scale
+
+	_get_anchored_position_offset()	
+	_on_vierport_size_changed()
 	
+	get_tree().root.size_changed.connect(_on_vierport_size_changed)
+
+
+func _get_anchored_position_offset():
+	var original_size: Vector2 = Vector2(
+		ProjectSettings.get("display/window/size/viewport_width"),
+		ProjectSettings.get("display/window/size/viewport_height"))
 	
+	_pos_offset = get_global_position()
+	if hanchor == HAlign.RIGHT:
+		_pos_offset.x -= original_size.x
+	if vanchor == VAlign.BOTTOM:
+		_pos_offset.y -= original_size.y
+
+
+func _on_vierport_size_changed():
+	var new_pos: Vector2 = _pos_offset
+	if hanchor == HAlign.RIGHT:
+		new_pos.x += get_viewport_rect().size.x
+	if vanchor == VAlign.BOTTOM:
+		new_pos.y += get_viewport_rect().size.y
+	
+	set_global_position(new_pos)
+
+
 func _inside_joystick(pos: Vector2) -> bool:
 	return pos.distance_to(_radius + _base.global_position) <= _radius.x
 	

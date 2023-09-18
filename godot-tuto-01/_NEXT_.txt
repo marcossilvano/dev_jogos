@@ -1,0 +1,27 @@
+INIMIGOS
+- Fazer os inimigos ficarem mais afastados uns dos outros (HeartBeast)
+- Fazer os inimigos não irem direto ao jogador (HeartBeast?)
+
+Inimigo bola (Space Invaders Python)
+- Move devagar e atira?
+
+Calibrar inimigos e genrators
+- 5 inimigos por generator?
+
+OBSTÁCULOS
+- Canhão que dispara no jogador
+- Canhão que dispara em uma faixa de ângulo e uma quantidade de tiros simultâneos
+  Ou dispara em somente uma direção e eu coloco mais de um no mesmo local
+
+ARMAS
+- Criar armas diferentes: shotgun/spreadshot, machinegun, railgun, missle/granade launcher
+- Tem munição? Pode trocar ou são power-ups, como em Xeno Crisis?
+
+SWITCHES
+- Alavancas/botões que abrem portas, passagens secretas (paredes), extendem pontes, etc...
+
+ITENS
+- Baú: chave ou mana (vida/dinheiro)
+
+HEALTH:
+- Mana/dinheiro

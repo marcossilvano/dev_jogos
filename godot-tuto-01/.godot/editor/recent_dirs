@@ -1,10 +1,16 @@
+D:/GitHub/dev_jogos/maze_shooter
 D:/GitHub/dev_jogos
+res://Enemy
+res://Player
+C:/Users/marko/.android
+C:/android_sdk
+D:/GitHub/dev_jogos/godot-tuto-01
+C:/Users/marko/AppData/Local/Android/Sdk
 res://Key
 res://
 res://Door
 res://Generator
 res://Aim
-res://Enemy
 res://UI/MobileInput
 res://Tile
 res://Explosion

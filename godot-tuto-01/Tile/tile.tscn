@@ -18,6 +18,11 @@ shape = SubResource("RectangleShape2D_ihtjx")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ceaxq")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.313726)
+z_index = -5
+position = Vector2(-5, -5)
+texture = ExtResource("1_pihgf")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0.2, 1)
 texture = ExtResource("1_pihgf")
