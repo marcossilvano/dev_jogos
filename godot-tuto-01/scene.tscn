@@ -33,13 +33,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="JoystickBase" parent="CanvasLayer/GameUI" instance=ExtResource("2_2rrlf")]
-visible = false
 position = Vector2(32, 360)
 scale = Vector2(2, 2)
 vanchor = 1
 
 [node name="JoystickBase2" parent="CanvasLayer/GameUI" instance=ExtResource("2_2rrlf")]
-visible = false
 position = Vector2(856, 368)
 scale = Vector2(2, 2)
 action_right = "axis2_right"

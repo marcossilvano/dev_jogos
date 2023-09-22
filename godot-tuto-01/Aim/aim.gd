@@ -11,7 +11,7 @@ var _radius: float
 
 func _ready() -> void:
 #	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_next_pos = get_global_position()
 
 

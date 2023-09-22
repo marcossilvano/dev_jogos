@@ -66,27 +66,35 @@ func _on_vierport_size_changed():
 func _inside_joystick(pos: Vector2) -> bool:
 	return pos.distance_to(_radius + _base.global_position) <= _radius.x
 	
+	
+func _calculate_move_vector(event_position) -> Vector2:
+	var texture_center = _base.global_position + _radius
+	return (event_position - texture_center).normalized()
+
+	
+func _get_stick_movement(event: InputEvent) -> void:
+#	if _base.is_pressed():				
+	_input_vector = _calculate_move_vector(event.position)
+	_active = true
+	_point.global_position = event.position
+	_point.visible = true
+	_generate_input_events()
+	
+	# the point cannot move beyond the joystick radius
+	if not _inside_joystick(event.position):
+		_point.global_position = _input_vector * _radius + _radius + _base.global_position
+	
 
 func _input(event: InputEvent) -> void:
 	# when the first touch is made, we store the index
 	if event is InputEventScreenTouch and _inside_joystick(event.position) and _touch_id == -1:
 		_touch_id = event.index				
+		_get_stick_movement(event)
 	
 	if (event is InputEventScreenTouch and _touch_id != -1) or event is InputEventScreenDrag:
 		if event.index != _touch_id:
 			return
-			
-		if _base.is_pressed():				
-			_input_vector = _calculate_move_vector(event.position)
-			_active = true
-			_point.global_position = event.position
-			_point.visible = true
-			_generate_input_events()
-			
-			# the point cannot move beyond the joystick radius
-			if not _inside_joystick(event.position):
-				_point.global_position = _input_vector * _radius + _radius + _base.global_position
-			
+		_get_stick_movement(event)
 
 	if event is InputEventScreenTouch:
 		if event.index != _touch_id:
@@ -128,11 +136,6 @@ func _generate_input_events() -> void:
 #	if _active:
 #		_generate_input_events()
 #		emit_signal("on_stick_moved", move_vector)
-
-
-func _calculate_move_vector(event_position) -> Vector2:
-	var texture_center = _base.global_position + _radius
-	return (event_position - texture_center).normalized()
 
 
 # external access method
