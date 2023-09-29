@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuy04ureaav2d"
-path="res://.godot/imported/generator.png-e5fdd05dcfaba325e33e2d2ead9eed41.ctex"
+path="res://.godot/imported/particle.png-2ab123d6f82665455d236e565530328c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Generator/generator.png"
-dest_files=["res://.godot/imported/generator.png-e5fdd05dcfaba325e33e2d2ead9eed41.ctex"]
+source_file="res://Explosion/particle.png"
+dest_files=["res://.godot/imported/particle.png-2ab123d6f82665455d236e565530328c.ctex"]
 
 [params]
 

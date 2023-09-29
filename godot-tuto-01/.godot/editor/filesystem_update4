@@ -1,3 +1,17 @@
 res://scene.tscn
 res://UI/MobileInput/Joystick.tscn
 res://Aim/aim.tscn
+res://Aim/aim.gd
+res://Player/Player.gd
+res://Player/player.tscn
+res://game_controller.gd
+res://game_init.gd
+res://Enemy/enemy.tscn
+res://Camera/camera_follow.tscn
+res://Camera/camera_follow.gd
+res://Generator/generator.tscn
+res://Generator/generator.gd
+res://Explosion/explosion_particles.tscn
+res://Explosion/explosion_particles.gd
+res://Bullet/bullet.tscn
+res://Bullet/Bullet.gd

@@ -18,6 +18,8 @@ var _active: bool = false
 var _tween: Tween
 var _enemy_count: int = 0
 
+var _explosion_res = preload("res://Explosion/explosion_particles.tscn")
+
 
 func _ready() -> void:
 	# get access to all sprites
@@ -59,6 +61,13 @@ func _on_enemy_killed():
 	_enemy_count -= 1
 
 
+func _create_explostion() -> void:
+	game_controller.shake_camera(5.0, 0.3)
+	var explosion = _explosion_res.instantiate()
+	explosion.position = get_global_position()
+	get_tree().get_root().add_child(explosion)
+	
+
 func _hit(body: Bullet):
 	health -= body.damage
 
@@ -70,6 +79,7 @@ func _hit(body: Bullet):
 
 	if health <= 0:
 		queue_free()
+		_create_explostion()
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:

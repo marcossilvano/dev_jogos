@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://das3jk3eeat5l"]
+[gd_scene load_steps=18 format=3 uid="uid://das3jk3eeat5l"]
 
 [ext_resource type="PackedScene" uid="uid://s8oeh6vhj774" path="res://Player/player.tscn" id="1_0lbw7"]
 [ext_resource type="Script" path="res://game_init.gd" id="1_xtwwl"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ngloru8157m" path="res://Generator/activator.tscn" id="7_ofmyl"]
 [ext_resource type="PackedScene" uid="uid://cixvb8y621w3g" path="res://Door/door.tscn" id="8_f0kbo"]
 [ext_resource type="Texture2D" uid="uid://cq07i5qjxod7k" path="res://fleshlight_texture.png" id="8_u3amd"]
+[ext_resource type="PackedScene" uid="uid://up3sfkcsxua5" path="res://Camera/camera_follow.tscn" id="8_xcakc"]
 [ext_resource type="PackedScene" uid="uid://x8y8hqd10evr" path="res://Generator/generator.tscn" id="10_7hfbx"]
 [ext_resource type="PackedScene" uid="uid://bs1kquo8r1g5w" path="res://Aim/aim.tscn" id="10_l4gvq"]
 [ext_resource type="PackedScene" uid="uid://fe7gibbfb8we" path="res://Key/key.tscn" id="13_2m525"]
@@ -92,9 +93,7 @@ position = Vector2(984, 512)
 scale = Vector2(1, 1)
 aim = NodePath("../Aim")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2.25, 2.25)
-position_smoothing_enabled = true
+[node name="Camera2D" parent="Player" instance=ExtResource("8_xcakc")]
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(3, -6)
@@ -127,13 +126,19 @@ scale = Vector2(2.84, 1)
 
 [node name="Generator9" parent="Room0" instance=ExtResource("10_7hfbx")]
 position = Vector2(1080, 176)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
 initial_delay = true
+enemy_limit = 5
 
 [node name="Generator10" parent="Room0" instance=ExtResource("10_7hfbx")]
 position = Vector2(888, 176)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
 initial_delay = true
+enemy_limit = 5
 
 [node name="Room1" type="Node2D" parent="."]
 
@@ -147,9 +152,19 @@ scale = Vector2(4, 1)
 
 [node name="Generator11" parent="Room1" instance=ExtResource("10_7hfbx")]
 position = Vector2(672, 128)
+health = 10.0
+rotation_speed = 2.0
+generation_delay = 1.5
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator12" parent="Room1" instance=ExtResource("10_7hfbx")]
 position = Vector2(672, 256)
+health = 10.0
+rotation_speed = 2.0
+generation_delay = 1.5
+initial_delay = false
+enemy_limit = 5
 
 [node name="Room2" type="Node2D" parent="."]
 
@@ -182,31 +197,59 @@ position = Vector2(328, 96)
 
 [node name="Generator2" parent="Room2" instance=ExtResource("10_7hfbx")]
 position = Vector2(416, 32)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.5
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator3" parent="Room2" instance=ExtResource("10_7hfbx")]
 position = Vector2(416, 88)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator4" parent="Room2" instance=ExtResource("10_7hfbx")]
 position = Vector2(416, 136)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.5
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator7" parent="Room2" instance=ExtResource("10_7hfbx")]
 position = Vector2(416, 184)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator5" parent="Room2" instance=ExtResource("10_7hfbx")]
 position = Vector2(272, 184)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.5
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator" parent="Room2" instance=ExtResource("10_7hfbx")]
 position = Vector2(320, 184)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator6" parent="Room2" instance=ExtResource("10_7hfbx")]
 position = Vector2(368, 184)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.5
+initial_delay = false
+enemy_limit = 5
 
 [node name="Room3" type="Node2D" parent="."]
 
@@ -216,19 +259,35 @@ scale = Vector2(5.96, 1.93012)
 
 [node name="Generator8" parent="Room3" instance=ExtResource("10_7hfbx")]
 position = Vector2(280, 576)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.25
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator9" parent="Room3" instance=ExtResource("10_7hfbx")]
 position = Vector2(776, 576)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.25
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator10" parent="Room3" instance=ExtResource("10_7hfbx")]
 position = Vector2(520, 456)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.75
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator12" parent="Room3" instance=ExtResource("10_7hfbx")]
 position = Vector2(520, 584)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.75
+initial_delay = false
+enemy_limit = 5
 
 [node name="Key6" parent="Room3" instance=ExtResource("13_2m525")]
 position = Vector2(728, 576)
@@ -245,31 +304,59 @@ scale = Vector2(4.4, 1)
 
 [node name="Generator13" parent="Room4" instance=ExtResource("10_7hfbx")]
 position = Vector2(-112, 496)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator14" parent="Room4" instance=ExtResource("10_7hfbx")]
 position = Vector2(64, 496)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator15" parent="Room4" instance=ExtResource("10_7hfbx")]
 position = Vector2(-24, 376)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 0.5
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator19" parent="Room4" instance=ExtResource("10_7hfbx")]
 position = Vector2(-24, 584)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator16" parent="Room4" instance=ExtResource("10_7hfbx")]
 position = Vector2(-128, 296)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator17" parent="Room4" instance=ExtResource("10_7hfbx")]
 position = Vector2(-24, 248)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator18" parent="Room4" instance=ExtResource("10_7hfbx")]
 position = Vector2(80, 296)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 2.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Room5" type="Node2D" parent="."]
 
@@ -296,19 +383,35 @@ scale = Vector2(3.24, 1)
 
 [node name="Generator5" parent="Room5" instance=ExtResource("10_7hfbx")]
 position = Vector2(168, -288)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator6" parent="Room5" instance=ExtResource("10_7hfbx")]
 position = Vector2(-192, -288)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator7" parent="Room5" instance=ExtResource("10_7hfbx")]
 position = Vector2(176, 120)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="Generator8" parent="Room5" instance=ExtResource("10_7hfbx")]
 position = Vector2(-200, 120)
+health = 10.0
+rotation_speed = 2.0
 generation_delay = 1.0
+initial_delay = false
+enemy_limit = 5
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -2)
@@ -320,9 +423,6 @@ layer_0/tile_data = PackedInt32Array(2555904, 0, 65536, 2555905, 0, 65536, 25559
 
 [node name="Aim" parent="." instance=ExtResource("10_l4gvq")]
 position = Vector2(1073, 511)
-
-[node name="camera_limit" type="Node2D" parent="."]
-position = Vector2(1152, 640)
 
 [connection signal="pressed" from="CanvasLayer/GameUI/FullscreenButton" to="CanvasLayer/GameUI/FullscreenButton" method="_on_pressed"]
 

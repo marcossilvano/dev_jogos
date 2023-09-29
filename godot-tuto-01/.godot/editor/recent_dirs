@@ -1,3 +1,5 @@
+res://Explosion
+res://Camera
 D:/GitHub/dev_jogos/maze_shooter
 D:/GitHub/dev_jogos
 res://Enemy
@@ -13,5 +15,4 @@ res://Generator
 res://Aim
 res://UI/MobileInput
 res://Tile
-res://Explosion
 res://Bullet
