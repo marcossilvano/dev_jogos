@@ -16,6 +16,3 @@ func _process(delta: float) -> void:
 	
 	if abs(position.x - _start_pos) >= _screen_width:
 		position.x += _screen_width * -sign(scroll_speed)
-
-
-	
