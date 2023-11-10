@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckq1ndye400gx"]
+
+[ext_resource type="Texture2D" uid="uid://icrragwfsfs4" path="res://weapon/bullet_normal.png" id="1_4epel"]
+[ext_resource type="Script" path="res://weapon/normal_bullet.gd" id="1_kyd8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlgy6"]
+size = Vector2(6, 4)
+
+[node name="NormalBullet" type="Area2D"]
+script = ExtResource("1_kyd8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4epel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tlgy6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

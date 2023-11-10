@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cri3x0rfx2nfq"
-path="res://.godot/imported/background.png-7cc287d099ef689961c37316554301ed.ctex"
+uid="uid://bfk4swe6cr5ab"
+path="res://.godot/imported/weapon.png-78ce462a1ccee7d0370165071c5eb1ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/background.png"
-dest_files=["res://.godot/imported/background.png-7cc287d099ef689961c37316554301ed.ctex"]
+source_file="res://weapon/weapon.png"
+dest_files=["res://.godot/imported/weapon.png-78ce462a1ccee7d0370165071c5eb1ba.ctex"]
 
 [params]
 

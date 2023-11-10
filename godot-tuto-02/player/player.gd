@@ -8,12 +8,14 @@ const JUMP_VELOCITY = 370.0
 const JUMP_VELOCITY_MIN = JUMP_VELOCITY/3
 
 @onready var _animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _coyote_timer: Timer = $CoyoteTimer
+@onready var _weapon: Weapon = $AnimatedSprite2D/Weapon
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _double_jump: bool = false
-var _direction: float = 0
-@onready var _coyote_timer: Timer = $CoyoteTimer
+var _direction: float = 1
 var _start_position: Vector2
+
 
 func _ready() -> void:
 	_start_position = position
@@ -26,6 +28,12 @@ func _physics_process(delta: float) -> void:
 	handle_jump()
 	handle_gravity()
 	handle_movement(delta)
+	
+	if _double_jump:
+		_weapon.fire_bullet()
+	
+	if Input.is_action_just_pressed("fire"):
+		_weapon.fire_bullet()
 		
 	animate_player()
 	
@@ -65,7 +73,7 @@ func handle_movement(delta: float) -> void:
 	if input:
 #		velocity.x = input * SPEED
 		velocity.x = move_toward(velocity.x, input * SPEED, ACCELERATION * delta)
-		_direction = input
+		_direction = sign(input)
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 
@@ -83,8 +91,10 @@ func animate_player() -> void:
 			_animated_sprite.play("spin")
 			_animated_sprite.rotation += 0.4 * -_direction * up_direction.y
 		
-	_animated_sprite.flip_h = false if _direction > 0 else true
-	_animated_sprite.flip_v = false if gravity > 0 else true
+#	_animated_sprite.flip_h = false if _direction > 0 else true
+	_animated_sprite.scale.x = _direction
+#	_animated_sprite.flip_v = false if gravity > 0 else true
+	_animated_sprite.scale.y = sign(gravity)
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:

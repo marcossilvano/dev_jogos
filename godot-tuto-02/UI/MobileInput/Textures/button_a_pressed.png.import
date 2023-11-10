@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4hrvabritkh5"
-path="res://.godot/imported/cloud_small.png-68a79042644a7ee2992226356df6a80d.ctex"
+uid="uid://mj0i3tgqt062"
+path="res://.godot/imported/button_a_pressed.png-18e1836f35dcfc3b4bc5dafa412e4c34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/cloud_small.png"
-dest_files=["res://.godot/imported/cloud_small.png-68a79042644a7ee2992226356df6a80d.ctex"]
+source_file="res://UI/MobileInput/Textures/button_a_pressed.png"
+dest_files=["res://.godot/imported/button_a_pressed.png-18e1836f35dcfc3b4bc5dafa412e4c34.ctex"]
 
 [params]
 
