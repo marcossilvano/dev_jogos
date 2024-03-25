@@ -18,7 +18,7 @@ var _direction: Vector2 = Vector2.ZERO
 var _move_function: Callable
 
 @onready var _sprite: Sprite2D = $Sprite
-@onready var _emitter: CPUParticles2D = $CPUParticles2D
+@onready var _emitter: CPUParticles2D = $Sprite/CPUParticles2D
 
 func _ready() -> void:
 	_screen_size = get_viewport_rect().size
@@ -94,7 +94,8 @@ func _move_and_rotate() -> void:
 		_emitter.emitting = false
 	
 	_direction = _direction.slerp(_input, 0.15)
-	rotation = _direction.angle()
+	_sprite.rotation = _direction.angle()
+	#rotation = _direction.angle()
 	
 	velocity = _input * speed
 	#position += velocity * delta

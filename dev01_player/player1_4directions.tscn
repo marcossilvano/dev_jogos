@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://player1_4directions.gd" id="1_flwkl"]
 [ext_resource type="Texture2D" uid="uid://cbnnj8glo8p7k" path="res://ship2.png" id="2_pivys"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_w425j"]
-radius = 12.0416
-
 [sub_resource type="Curve" id="Curve_vus8y"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.977528, 0.10989), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w425j"]
+radius = 12.0416
 
 [node name="PlayerShip" type="CharacterBody2D"]
 script = ExtResource("1_flwkl")
@@ -17,14 +17,14 @@ script = ExtResource("1_flwkl")
 position = Vector2(4, 0)
 texture = ExtResource("2_pivys")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_w425j")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(-16, 0)
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite"]
+position = Vector2(-20, 0)
 amount = 30
 direction = Vector2(0, 0)
 gravity = Vector2(0, 0)
 scale_amount_min = 8.0
 scale_amount_max = 12.0
 scale_amount_curve = SubResource("Curve_vus8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w425j")
