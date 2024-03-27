@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdgpthokotas0"
-path="res://.godot/imported/background_stars.png-e5c1ec5f4b18f8bcb23ff7be07298d5e.ctex"
+uid="uid://bx2c1ecrdc4qt"
+path="res://.godot/imported/foreground_stars.png-c13ec648fa0b4e1c9a394a0330e47de3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://background_stars.png"
-dest_files=["res://.godot/imported/background_stars.png-e5c1ec5f4b18f8bcb23ff7be07298d5e.ctex"]
+source_file="res://level/foreground_stars.png"
+dest_files=["res://.godot/imported/foreground_stars.png-c13ec648fa0b4e1c9a394a0330e47de3.ctex"]
 
 [params]
 

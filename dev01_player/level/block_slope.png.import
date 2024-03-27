@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo3e6jygkavtx"
-path="res://.godot/imported/ship1.png-4fa4d792604e76e5ee976f5adecc0e48.ctex"
+uid="uid://cjtjq5ktxblrq"
+path="res://.godot/imported/block_slope.png-e711986df2e177dfc1f15867eaefc463.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ship1.png"
-dest_files=["res://.godot/imported/ship1.png-4fa4d792604e76e5ee976f5adecc0e48.ctex"]
+source_file="res://level/block_slope.png"
+dest_files=["res://.godot/imported/block_slope.png-e711986df2e177dfc1f15867eaefc463.ctex"]
 
 [params]
 

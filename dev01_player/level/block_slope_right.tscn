@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch8aoyc5nuvbm"]
 
-[ext_resource type="Texture2D" uid="uid://cjtjq5ktxblrq" path="res://block_slope.png" id="1_ce86d"]
+[ext_resource type="Texture2D" uid="uid://cjtjq5ktxblrq" path="res://level/block_slope.png" id="1_ce86d"]
 
 [node name="SlopeRight" type="StaticBody2D"]
 

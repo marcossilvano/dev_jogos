@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const ACCELERATION = 800
+const FALL_SPEED = 900
 const FRICTION = 900
 const JUMP_VELOCITY = -900.0
 const JUMP_VELOCITY_MIN = JUMP_VELOCITY/3
@@ -10,7 +11,7 @@ const JUMP_VELOCITY_MIN = JUMP_VELOCITY/3
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var _animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var _gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-var _direction: float = 0
+var _direction: float = 1
 
 func _ready() -> void:
 	_gravity = 2 * _gravity
@@ -22,10 +23,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y += _gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("btn_jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
-	elif Input.is_action_just_released("ui_accept"):
+	elif Input.is_action_just_released("btn_jump"):
 		if velocity.y < JUMP_VELOCITY_MIN:
 			velocity.y = JUMP_VELOCITY_MIN
 
@@ -39,7 +40,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 
+	velocity.y = min(FALL_SPEED, velocity.y)
+
 	move_and_slide()
+	
+	var bg_gd: ScrollingBackground = $"../BackgroundStars5"
+	bg_gd.speed = velocity.x/5
+	
 	_animate_player()
 	# screen wrap
 	position.x = wrap(position.x, 0, get_viewport_rect().size.x)

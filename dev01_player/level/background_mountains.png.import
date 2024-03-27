@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8fdkbqwhqqe0"
-path="res://.godot/imported/player1_sheet.png-edf4399764141503e6039e8d0207a4f0.ctex"
+uid="uid://cntxqi630htg5"
+path="res://.godot/imported/background_mountains.png-60b6da629c2dd4214c9d55cacd0193b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player1_sheet.png"
-dest_files=["res://.godot/imported/player1_sheet.png-edf4399764141503e6039e8d0207a4f0.ctex"]
+source_file="res://level/background_mountains.png"
+dest_files=["res://.godot/imported/background_mountains.png-60b6da629c2dd4214c9d55cacd0193b9.ctex"]
 
 [params]
 

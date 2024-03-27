@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bx7qf2hscm0ta"]
 
-[ext_resource type="Script" path="res://player1_4directions.gd" id="1_flwkl"]
-[ext_resource type="Texture2D" uid="uid://cbnnj8glo8p7k" path="res://ship2.png" id="2_pivys"]
+[ext_resource type="Script" path="res://player_ship/player1_4directions.gd" id="1_flwkl"]
+[ext_resource type="Texture2D" uid="uid://cbnnj8glo8p7k" path="res://player_ship/ship2.png" id="2_pivys"]
 
 [sub_resource type="Curve" id="Curve_vus8y"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.977528, 0.10989), 0.0, 0.0, 0, 0]
