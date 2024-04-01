@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name PlayerBot
 
 const SPEED = 300.0
 const ACCELERATION = 800
@@ -44,14 +44,14 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	var bg_gd: ScrollingBackground = $"../BackgroundStars5"
-	bg_gd.speed = velocity.x/5
+	#var bg_gd: ScrollingBackground = $"../BackgroundStars5"
+	#bg_gd.speed = velocity.x/5
 	
 	_animate_player()
+	
 	# screen wrap
-	position.x = wrap(position.x, 0, get_viewport_rect().size.x)
-	position.y = wrap(position.y, 0, get_viewport_rect().size.y)
-
+	#position.x = wrap(position.x, 0, get_viewport_rect().size.x)
+	#position.y = wrap(position.y, 0, get_viewport_rect().size.y)
 
 
 func _animate_player() -> void:

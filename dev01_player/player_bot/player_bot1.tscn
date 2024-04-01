@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://6ujvis1lc3op"]
+[gd_scene load_steps=18 format=3 uid="uid://6ujvis1lc3op"]
 
 [ext_resource type="Script" path="res://player_bot/player_bot.gd" id="1_qc355"]
+[ext_resource type="Texture2D" uid="uid://qjo1juuuheja" path="res://player_bot/shadow.png" id="2_avrgd"]
 [ext_resource type="Texture2D" uid="uid://c8fdkbqwhqqe0" path="res://player_bot/player1_sheet.png" id="2_br0gn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xun7d"]
@@ -115,6 +116,12 @@ size = Vector2(25, 56)
 floor_constant_speed = true
 floor_snap_length = 8.0
 script = ExtResource("1_qc355")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(1, 32.625)
+scale = Vector2(1.29688, 1.02344)
+texture = ExtResource("2_avrgd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gpqi7")

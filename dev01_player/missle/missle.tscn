@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpwt53nawu6rb"]
+
+[ext_resource type="Texture2D" uid="uid://dntb6lqqdj7n7" path="res://missle/missle.png" id="1_lmxto"]
+[ext_resource type="Script" path="res://missle/missle.gd" id="1_qb8e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_107cj"]
+size = Vector2(13, 6)
+
+[sub_resource type="Curve" id="Curve_xbcv8"]
+_data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Missle" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_qb8e2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lmxto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_107cj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-9, 0)
+amount = 20
+lifetime = 0.5
+gravity = Vector2(0, 0)
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_xbcv8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://3ee4ueuvxloy"]
+
+[ext_resource type="Texture2D" uid="uid://dqvo2rgoqaah0" path="res://cannon/cannon.png" id="1_1nq47"]
+[ext_resource type="Script" path="res://cannon/cannon.gd" id="1_irqo2"]
+[ext_resource type="Texture2D" uid="uid://m4qvrocjgjw1" path="res://cannon/cannon_base.png" id="2_r5tpf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ws4cy"]
+radius = 18.0278
+
+[node name="Cannon" type="Area2D"]
+script = ExtResource("1_irqo2")
+_missle_path = "res://missle/missle.tscn"
+
+[node name="CannonBase" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("2_r5tpf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1nq47")
+
+[node name="LaunchMarker" type="Marker2D" parent="Sprite"]
+position = Vector2(32, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ws4cy")

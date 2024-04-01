@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjtjq5ktxblrq"
-path="res://.godot/imported/block_slope.png-e711986df2e177dfc1f15867eaefc463.ctex"
+uid="uid://qjo1juuuheja"
+path="res://.godot/imported/shadow.png-374e55acea9b89113db3bfc81a773a38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/block_slope.png"
-dest_files=["res://.godot/imported/block_slope.png-e711986df2e177dfc1f15867eaefc463.ctex"]
+source_file="res://player_bot/shadow.png"
+dest_files=["res://.godot/imported/shadow.png-374e55acea9b89113db3bfc81a773a38.ctex"]
 
 [params]
 

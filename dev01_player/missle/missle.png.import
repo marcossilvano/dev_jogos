@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8vgm7titdth4"
-path="res://.godot/imported/block.png-269a145248a4d530b93768d5d0dd763d.ctex"
+uid="uid://dntb6lqqdj7n7"
+path="res://.godot/imported/missle.png-a2d46c9bb39026470b7328caedb8df0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/block.png"
-dest_files=["res://.godot/imported/block.png-269a145248a4d530b93768d5d0dd763d.ctex"]
+source_file="res://missle/missle.png"
+dest_files=["res://.godot/imported/missle.png-a2d46c9bb39026470b7328caedb8df0f.ctex"]
 
 [params]
 
