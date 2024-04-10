@@ -10,17 +10,19 @@ const JUMP_VELOCITY_MIN = JUMP_VELOCITY/3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var _animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-var _gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var _weapon: Weapon = $AnimatedSprite2D/Weapon
+
+var _gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 var _direction: float = 1
 
-func _ready() -> void:
-	_gravity = 2 * _gravity
-	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += _gravity * delta
+
+	if Input.is_action_just_pressed("btn_fire"):
+		_weapon.fire_bullet()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("btn_jump"):

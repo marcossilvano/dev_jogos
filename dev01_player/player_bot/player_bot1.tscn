@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://6ujvis1lc3op"]
+[gd_scene load_steps=19 format=3 uid="uid://6ujvis1lc3op"]
 
 [ext_resource type="Script" path="res://player_bot/player_bot.gd" id="1_qc355"]
 [ext_resource type="Texture2D" uid="uid://qjo1juuuheja" path="res://player_bot/shadow.png" id="2_avrgd"]
 [ext_resource type="Texture2D" uid="uid://c8fdkbqwhqqe0" path="res://player_bot/player1_sheet.png" id="2_br0gn"]
+[ext_resource type="PackedScene" uid="uid://dpyqb1c6h2u24" path="res://weapon/weapon.tscn" id="4_c3f4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xun7d"]
 atlas = ExtResource("2_br0gn")
@@ -128,6 +129,9 @@ sprite_frames = SubResource("SpriteFrames_gpqi7")
 animation = &"run"
 autoplay = "idle"
 frame_progress = 0.953258
+
+[node name="Weapon" parent="AnimatedSprite2D" instance=ExtResource("4_c3f4i")]
+position = Vector2(23, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 3)
