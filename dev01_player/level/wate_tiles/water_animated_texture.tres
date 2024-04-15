@@ -1,0 +1,20 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://kukkvqyk07dk"]
+
+[ext_resource type="Texture2D" uid="uid://be2ql7pogl5cr" path="res://level/wate_tiles/water_tile1.png" id="1_ogqpl"]
+[ext_resource type="Texture2D" uid="uid://cut3oq3a01811" path="res://level/wate_tiles/water_tile2.png" id="2_8ongg"]
+[ext_resource type="Texture2D" uid="uid://bv2lcv2yd3i36" path="res://level/wate_tiles/water_tile3.png" id="3_t0alg"]
+[ext_resource type="Texture2D" uid="uid://ckqwlwu2y0o7j" path="res://level/wate_tiles/water_tile4.png" id="4_rlfg6"]
+[ext_resource type="Texture2D" uid="uid://burfklnup8de5" path="res://level/wate_tiles/water_tile5.png" id="5_2gdin"]
+
+[resource]
+frames = 5
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_ogqpl")
+frame_1/texture = ExtResource("2_8ongg")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_t0alg")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_rlfg6")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_2gdin")
+frame_4/duration = 1.0
