@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4w2ciu8yrsx"
-path="res://.godot/imported/mancia_mansion_c64.png-2e3e41002c36cd1b3cbcce2ca8560506.ctex"
+uid="uid://db48fkqqlgqti"
+path="res://.godot/imported/first_scene.png-897c6fc4d453fef16296971f50702cff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mancia_mansion_c64.png"
-dest_files=["res://.godot/imported/mancia_mansion_c64.png-2e3e41002c36cd1b3cbcce2ca8560506.ctex"]
+source_file="res://scene_images/first_scene.png"
+dest_files=["res://.godot/imported/first_scene.png-897c6fc4d453fef16296971f50702cff.ctex"]
 
 [params]
 

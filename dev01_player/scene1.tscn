@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://uw2swuykj07a"]
+[gd_scene load_steps=16 format=3 uid="uid://uw2swuykj07a"]
 
 [ext_resource type="Texture2D" uid="uid://cdgpthokotas0" path="res://level/background_stars.png" id="1_hmq2h"]
 [ext_resource type="PackedScene" uid="uid://bx7qf2hscm0ta" path="res://player_ship/player_ship.tscn" id="1_owtn4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://2uce3dpgqn8k" path="res://level/tiles1.png" id="7_r3n84"]
 [ext_resource type="PackedScene" uid="uid://3ee4ueuvxloy" path="res://cannon/cannon.tscn" id="8_4n48f"]
 [ext_resource type="Script" path="res://label_fps.gd" id="8_cacnq"]
+[ext_resource type="Script" path="res://label_items.gd" id="8_ee68n"]
 [ext_resource type="PackedScene" uid="uid://ybilt8xnf4t4" path="res://item/item.tscn" id="10_c3wl5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6jqa"]
@@ -163,8 +164,18 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 64.0
 offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "FPS: 60"
 script = ExtResource("8_cacnq")
+
+[node name="LabelItems" type="Label" parent="CanvasLayerHUD"]
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 99.0
+offset_bottom = 62.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Items: 0000"
+script = ExtResource("8_ee68n")
 
 [node name="CanvasLayerBg" type="CanvasLayer" parent="."]
 layer = -1
@@ -199,14 +210,16 @@ position = Vector2(544, 64)
 rotation = 1.57079
 _ship = NodePath("../../PlayerShip1")
 
-[node name="Item" parent="." instance=ExtResource("10_c3wl5")]
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Item" parent="Items" instance=ExtResource("10_c3wl5")]
 position = Vector2(320, 288)
 
-[node name="Item2" parent="." instance=ExtResource("10_c3wl5")]
+[node name="Item2" parent="Items" instance=ExtResource("10_c3wl5")]
 position = Vector2(352, 288)
 
-[node name="Item3" parent="." instance=ExtResource("10_c3wl5")]
+[node name="Item3" parent="Items" instance=ExtResource("10_c3wl5")]
 position = Vector2(384, 288)
 
-[node name="Item4" parent="." instance=ExtResource("10_c3wl5")]
+[node name="Item4" parent="Items" instance=ExtResource("10_c3wl5")]
 position = Vector2(416, 288)

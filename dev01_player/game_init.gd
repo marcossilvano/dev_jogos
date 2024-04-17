@@ -1,14 +1,7 @@
-# Player
-#	- Dano ao jogador
-#
-# Efeitos
-#	- Partículas
-#   - tela fade vermelha quando player leva dano
-#
 class_name GameInit
 extends Node2D
 
-@onready var _player: PlayerBot = $PlayerBot1
+#@onready var _player: PlayerBot = $PlayerBot1
 @onready var _camera: CameraShake = $PlayerBot1/Camera2D
 #@onready var _keys_ui: TextureRect = $CanvasLayer/GameUI/KeysUI
 
@@ -19,11 +12,11 @@ func _ready() -> void:
 	_camera.init_camera_limits(_get_map_bounds($TileMap))
 
 	
-func _get_map_bounds(tilemap) -> Rect2:
-	var cell_rect: Rect2 = tilemap.get_used_rect()
-	var pixel_size: float = tilemap.cell_quadrant_size * tilemap.scale.x
+func _get_map_bounds(tilemap: TileMap) -> Rect2:
+	var map_rect: Rect2 = tilemap.get_used_rect()
+	var cell_width: float = tilemap.tile_set.tile_size.x * tilemap.scale.x
 	
-	var pos := Vector2(pixel_size * cell_rect.position.x, pixel_size * cell_rect.position.y)
-	var size:= Vector2(pixel_size * cell_rect.size.x, pixel_size * cell_rect.size.y)
+	var pos := map_rect.position * cell_width
+	var size:= map_rect.size * cell_width
 	
 	return Rect2(pos, size)	

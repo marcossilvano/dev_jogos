@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://6ujvis1lc3op"]
+[gd_scene load_steps=21 format=3 uid="uid://6ujvis1lc3op"]
 
 [ext_resource type="Script" path="res://player_bot/player_bot.gd" id="1_qc355"]
 [ext_resource type="Texture2D" uid="uid://qjo1juuuheja" path="res://player_bot/shadow.png" id="2_avrgd"]
 [ext_resource type="Texture2D" uid="uid://c8fdkbqwhqqe0" path="res://player_bot/player1_sheet.png" id="2_br0gn"]
 [ext_resource type="PackedScene" uid="uid://dpyqb1c6h2u24" path="res://weapon/weapon.tscn" id="4_c3f4i"]
+[ext_resource type="Script" path="res://player_bot/item_collector.gd" id="5_kawk1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xun7d"]
 atlas = ExtResource("2_br0gn")
@@ -113,6 +114,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6mky"]
 size = Vector2(25, 56)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iuypo"]
+radius = 38.2099
+
 [node name="PlayerBot1" type="CharacterBody2D"]
 floor_constant_speed = true
 floor_snap_length = 8.0
@@ -136,3 +140,15 @@ position = Vector2(23, 6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_g6mky")
+
+[node name="ItemCollector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_kawk1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollector"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_iuypo")
+debug_color = Color(0.494118, 0.47451, 0.878431, 0.419608)
+
+[connection signal="area_entered" from="ItemCollector" to="ItemCollector" method="_on_area_entered"]

@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Interactive-fiction"
-config/features=PackedStringArray("4.1", "GL Compatibility")
+run/main_scene="res://scene1.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]

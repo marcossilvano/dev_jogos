@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://udahaw57xw8j"]
 
 [ext_resource type="Script" path="res://SceneController.gd" id="1_tgu5x"]
-[ext_resource type="Texture2D" uid="uid://b4w2ciu8yrsx" path="res://mancia_mansion_c64.png" id="2_dg1fp"]
+[ext_resource type="Texture2D" uid="uid://b4w2ciu8yrsx" path="res://scene_images/mancia_mansion_c64.png" id="2_dg1fp"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_tgu5x")

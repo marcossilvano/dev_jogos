@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4lope2jmcye5"]
+
+[ext_resource type="Script" path="res://player_ship/player_ship.gd" id="1_px313"]
+[ext_resource type="Texture2D" uid="uid://j8il5mdap2uf" path="res://player_ship/ship2.png" id="1_ugpgm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hht7g"]
+radius = 12.0416
+
+[sub_resource type="Curve" id="Curve_rq4hm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="PlayerShip" type="CharacterBody2D"]
+script = ExtResource("1_px313")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ugpgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hht7g")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-13, 0)
+amount = 30
+gravity = Vector2(0, 0)
+angle_max = 90.0
+scale_amount_min = 9.0
+scale_amount_max = 9.0
+scale_amount_curve = SubResource("Curve_rq4hm")

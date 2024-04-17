@@ -11,10 +11,18 @@ const JUMP_VELOCITY_MIN = JUMP_VELOCITY/3
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var _animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _weapon: Weapon = $AnimatedSprite2D/Weapon
+@onready var _item_collector: ItemCollector = $ItemCollector
 
 var _gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 var _direction: float = 1
 
+func _ready() -> void:
+	_item_collector.item_collected.connect(_on_item_collected)
+
+
+func _on_item_collected(item: Item) -> void:
+	print(item.get_value())
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
