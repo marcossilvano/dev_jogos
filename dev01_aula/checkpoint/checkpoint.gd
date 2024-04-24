@@ -6,5 +6,5 @@ func _activate() -> void:
 	
 	
 func _deactivate() -> void:
-	print("deactivate")
+#	print("deactivate")
 	$Sprite2D.frame = 0

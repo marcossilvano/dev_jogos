@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8l38v62be0cl"]
+
+[ext_resource type="Script" path="res://explosion.gd" id="1_u6bn7"]
+
+[sub_resource type="Gradient" id="Gradient_2ps7r"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 50.0
+scale_amount_min = 6.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_2ps7r")
+script = ExtResource("1_u6bn7")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

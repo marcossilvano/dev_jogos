@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Godot 1"
+config/name="Dev Aulas"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -92,6 +92,7 @@ jump={
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Item"
 2d_physics/layer_6="Checkpoint"
+2d_physics/layer_7="Missle"
 
 [rendering]
 

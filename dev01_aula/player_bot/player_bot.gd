@@ -69,16 +69,20 @@ func _animate_player():
 	_animated_sprite.scale.x = _direction
 
 
+# body entered
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	position = _start_position
 	#queue_free()
 	#print(body.name)
 
-
+# area entered
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Checkpoint"):
 		if _last_checkpoint != null:
 			_last_checkpoint._deactivate()
 		area._activate()
 		_start_position = area.position
-		_last_checkpoint = area
+		_last_checkpoint = area	
+	
+	elif area.is_in_group("Missle"):
+		position = _start_position

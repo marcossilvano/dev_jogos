@@ -279,9 +279,43 @@ position = Vector2(352, 256)
 
 [node name="Cannons" type="Node2D" parent="."]
 
-[node name="Cannon" parent="Cannons" instance=ExtResource("9_onml3")]
-position = Vector2(64, -16)
+[node name="Node2D" type="Node2D" parent="Cannons"]
+position = Vector2(0, 61)
 
-[node name="Cannon2" parent="Cannons" instance=ExtResource("9_onml3")]
+[node name="Cannon3" parent="Cannons/Node2D" instance=ExtResource("9_onml3")]
 position = Vector2(64, 64)
 rotation = 0.523598
+
+[node name="Cannon 8-way" type="Node2D" parent="Cannons"]
+position = Vector2(-46, -251)
+
+[node name="Cannon3" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+
+[node name="Cannon4" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+rotation = -0.785398
+
+[node name="Cannon5" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+rotation = -1.5708
+
+[node name="Cannon6" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+rotation = -2.35619
+
+[node name="Cannon7" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+rotation = 3.14159
+
+[node name="Cannon8" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+rotation = 2.35619
+
+[node name="Cannon9" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+rotation = 1.5708
+
+[node name="Cannon10" parent="Cannons/Cannon 8-way" instance=ExtResource("9_onml3")]
+position = Vector2(606, 299)
+rotation = 0.785398

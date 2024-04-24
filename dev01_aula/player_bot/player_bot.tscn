@@ -138,6 +138,8 @@ animations = [{
 size = Vector2(23, 54)
 
 [node name="PlayerBot" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 65
 script = ExtResource("1_coaxk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -150,8 +152,8 @@ position = Vector2(2.5, 2)
 shape = SubResource("RectangleShape2D_1mk1q")
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 36
+collision_layer = 0
+collision_mask = 100
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(2.5, 2)
