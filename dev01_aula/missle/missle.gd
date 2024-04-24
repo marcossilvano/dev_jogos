@@ -3,7 +3,6 @@ class_name Missle
 
 const STEER_FORCE: float = 0.05
 
-@export var homming: bool = false
 @export var speed: float = 300
 
 var _velocity: Vector2 = Vector2.ZERO
@@ -14,7 +13,6 @@ var _explosion_scn: Resource
 func _ready() -> void:
 	_explosion_scn = preload("res://explosion.tscn")
 
-#func launch(trans: Transform2D) -> void:
 func launch(pos: Vector2, rot: float, target: Node2D, spd: float) -> void:
 	position = pos
 	rotation = rot
@@ -22,8 +20,6 @@ func launch(pos: Vector2, rot: float, target: Node2D, spd: float) -> void:
 	_velocity = Vector2.from_angle(rot) * speed
 	_target = target
 	speed = spd
-	#global_transform = trans
-	#_velocity = transform.x * SPEED
 
 
 func _physics_process(delta: float) -> void:

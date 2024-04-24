@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ybilt8xnf4t4"]
+
+[ext_resource type="Script" path="res://item/item.gd" id="1_d2a3m"]
+[ext_resource type="Texture2D" uid="uid://cuwgrmwey3cjc" path="res://item/item.png" id="1_ns3wu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4mpe"]
+radius = 11.0
+
+[sub_resource type="Animation" id="Animation_on6ni"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uskt0"]
+_data = {
+"idle": SubResource("Animation_on6ni")
+}
+
+[node name="Item" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_d2a3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ns3wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w4mpe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uskt0")
+}
+autoplay = "idle"

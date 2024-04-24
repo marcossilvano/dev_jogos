@@ -70,8 +70,9 @@ func _animate_player():
 
 
 # body entered
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	position = _start_position
+	velocity = Vector2.ZERO
 	#queue_free()
 	#print(body.name)
 

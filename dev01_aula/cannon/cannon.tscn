@@ -35,6 +35,10 @@ position = Vector2(36, 0)
 shape = SubResource("CircleShape2D_ws4cy")
 
 [node name="TargetArea" type="Area2D" parent="."]
+process_mode = 4
+visible = false
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea"]
 shape = SubResource("CircleShape2D_krbc1")

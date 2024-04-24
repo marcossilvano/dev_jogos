@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_107cj"]
 size = Vector2(24, 16)
 
-[node name="Missle" type="Area2D"]
+[node name="Missle" type="Area2D" groups=["Missle"]]
 collision_layer = 64
 collision_mask = 3
 script = ExtResource("1_qb8e2")
