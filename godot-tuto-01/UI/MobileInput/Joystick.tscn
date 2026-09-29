@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c11rjmcryh5jy" path="res://UI/MobileInput/Textures/base.png" id="1_ygscl"]
 [ext_resource type="Texture2D" uid="uid://w4oq668axgry" path="res://UI/MobileInput/Textures/stick.png" id="2_e6wgu"]
-[ext_resource type="Script" path="res://UI/MobileInput/Joystick.gd" id="2_uulxx"]
+[ext_resource type="Script" uid="uid://yteeffqeodkf" path="res://UI/MobileInput/Joystick.gd" id="2_uulxx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwqh1"]
 radius = 64.0

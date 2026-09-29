@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bjglsy3ewuln" path="res://UI/MobileInput/Textures/button_a_normal.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://mj0i3tgqt062" path="res://UI/MobileInput/Textures/button_a_pressed.png" id="2"]
-[ext_resource type="Script" path="res://UI/MobileInput/ButtonA.gd" id="3"]
+[ext_resource type="Script" uid="uid://d0wh3dnmtuyw0" path="res://UI/MobileInput/ButtonA.gd" id="3"]
 
 [node name="ButtonA" type="Node2D"]
 script = ExtResource("3")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://s8oeh6vhj774"]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_f62k0"]
+[ext_resource type="Script" uid="uid://bm1v4sc0g4i4f" path="res://Player/Player.gd" id="1_f62k0"]
 [ext_resource type="Texture2D" uid="uid://c83fnwtbfuj21" path="res://Player/doomguy.png" id="2_2qw70"]
 [ext_resource type="Texture2D" uid="uid://noq54m526sa7" path="res://Player/player.png" id="2_mj8sk"]
 [ext_resource type="Texture2D" uid="uid://b4qpivys1vlga" path="res://Aim/aim.png" id="3_p3ujd"]

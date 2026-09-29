@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cmndj1spto6ok"]
 
-[ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_nheir"]
+[ext_resource type="Script" uid="uid://ikgnaeb658gw" path="res://Enemy/Enemy.gd" id="1_nheir"]
 [ext_resource type="Texture2D" uid="uid://byob8tnn7hsha" path="res://Enemy/alien_sheet.png" id="2_k0drq"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t34ac"]
